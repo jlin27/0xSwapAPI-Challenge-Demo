@@ -16,6 +16,15 @@ import { privateKeyToAccount } from "viem/accounts";
 import { scroll } from "viem/chains";
 import { wethAbi } from "./abi/weth-abi";
 
+/* For the 0x Challenge on Scroll, implement the following
+
+1. Display the percentage breakdown of liquidity sources
+2. Monetize your app with affiliate fees and surplus collection
+3. Display buy/sell tax for tokens with tax
+4. Display all sources of liquidity on Scroll
+
+*/
+
 const qs = require("qs");
 
 // load env vars
@@ -184,4 +193,5 @@ const main = async () => {
     console.error("Failed to obtain a signature, transaction not sent.");
   }
 };
+
 main();
