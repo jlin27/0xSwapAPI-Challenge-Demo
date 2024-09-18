@@ -2,7 +2,7 @@
 
 This code is for the [0x Challenge on Scroll](https://www.levelup.xyz/challenges/0x-challenge).
 
-A headless example of how to use 0x Swap API v2 `/permit2/price` and `/permit2/quote`.
+A headless example of how to use 0x Swap API v2 `/price` and `/quote`.
 
 See the [Get started with Swap API guide](https://0x.org/docs/0x-swap-api/guides/swap-tokens-with-0x-swap-api) to learn how to use it.
 
@@ -15,26 +15,6 @@ This example demonstrates the following on Scroll mainnet:
 4. Sign the Permit2 EIP-712 message
 5. Append signature length and signature data to calldata
 6. Submit the transaction with permit2 signature
-
-### What is the difference between Permit2 and AllowanceHolder?
-
-<details>
-
-<summary>Read more about when to use AllowanceHolder vs Permit2</summary>
-
-0x Swap API offers you the optionality to either use [Permit2](https://0x.org/docs/next/introduction/0x-cheat-sheet#permit2-contract) or [AllowanceHolder](https://0x.org/docs/next/introduction/0x-cheat-sheet#allowanceholder-contract) as the allowance target.
-
-For most applications, we recommend using the Permit2 flow for swaps and setting allowances on the Permit2 contract. This process requires collecting two signatures from your users per trade: one offchain signature for the limited approval and an onchain signature for the trade.
-
-While Permit2's single-use method provides greatly enhanced security, we recognize that some projects may not wish to have a double-signature UX (this may apply to teams that integrate Swap API into smart contracts, or teams that are aggregating across multiple sources and want to keep the UI consistent across all the integrations).
-
-If your integration prevents you from collecting offchain signatures, such as with smart contracts, we recommend using AllowanceHolder.
-
-Originally developed by Uniswap based on the work of 0x alumnus [Lawrence Forman](https://github.com/merklejerk), [Permit2](https://blog.uniswap.org/permit2-and-universal-router) is a token approval method that can be used to safely share and manage token approvals across different smart contracts. Permit2 is immutable, extensively audited, used by other trusted protocols in the space including Uniswap and has a [$3M bug bounty](https://uniswap.org/bug-bounty).
-
-Still have questions? [Reachout to our team](https://0x.org/docs/introduction/community#contact-support).
-
-</details>
 
 > [!WARNING]  
 > This is a demo, and is not ready for production use. The code has not been audited and does not account for all error handling. Use at your own risk.
@@ -241,3 +221,12 @@ Signed permit2 message from quote response
 Transaction hash: 0xcb9ec3b8ef7002f9fa232fa23f16a0ba365a1c1d48580f420977a1b20c86ab78
 See tx details at https://basescan.org/tx/0xcb9ec3b8ef7002f9fa232fa23f16a0ba365a1c1d48580f420977a1b20c86ab78
 ```
+
+## For the Challenge
+
+For the 0x Challenge on Scroll, implement the following
+
+1. Display the percentage breakdown of liquidity sources
+2. Monetize your app with affiliate fees and surplus collection
+3. Display buy/sell tax for tokens with tax
+4. Display all sources of liquidity on Scroll
